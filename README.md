@@ -1,4 +1,4 @@
-# Graph construction for charged particle tracking [C++]]
+# Graph construction for charged particle tracking [C++]
 
 ## Repo Organization
 - **data_handling/**
