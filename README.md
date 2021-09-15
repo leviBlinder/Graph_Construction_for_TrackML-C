@@ -23,7 +23,7 @@
   [Stores graphs constructed by graph_construction algorithms]
   - graphsNPZ/: Stores graphs transformed from .csv to .npz files for input into plotting.
 
-    - Note .npz file type is not strictly necessary, currently used for compatibility paper_plots.ipynb [ modified from python version of repository ].
+    - Note .npz file type is not strictly necessary, currently used for compatibility paper_plots.ipynb [modified from [plots](https://github.com/GageDeZoort/interaction_network_paper/blob/pytorch_geometric/plotting/paper_plots.ipynb) in python-based Interaction Network (trackML project)]
 - **plotting/**
   - paper_plots.ipynb: Jupyter notebook that loads and plots saved graphs, and loads and plots measurements.
 - **train_100_events/**
