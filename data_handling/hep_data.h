@@ -1,7 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<cmath>
-#include"hit_list.h"
+#include "structs/hit_list.h"
 using namespace std;
 #ifndef HEP_DATA
 #define HEP_DATA

@@ -12,17 +12,21 @@ CFLAGS = -g -Wall
 CPFLAGS = $(addprefix -I , $(INCLUDE_DIRECTORIES))
 
 # The build targets
-TARGET = graph_construction/build_geometric
+TARGETBUILD = graph_construction/build_geometric
+TARGETMEASURE = graph_construction/measurements/measure_geometric
 
 # Local .cc files to be linked
-DEPEND = data_handling/hep_data.cc data_handling/structs/segment.cc data_handling/structs/hit_list.cc
+DEPEND = data_handling/hep_data.cc data_handling/structs/segment.cc data_handling/structs/hit_list.cc data_handling/structs/args.cc graph_construction/geometric_functions.cc
 
 
-all: $(TARGET)
+all: $(TARGETBUILD) $(TARGETMEASURE)
 
-$
-$(TARGET): $(TARGET).cc
-	$(CC) $(CFLAGS) $(CPFLAGS) $(DEPEND) $(TARGET).cc -o $(TARGET)
+$(TARGETMEASURE): $(TARGETMEASURE).cc $(DEPEND)
+	$(CC) $(CFLAGS) $(CPFLAGS) $(DEPEND) $(TARGETMEASURE).cc -o $(TARGETMEASURE)
+
+$(TARGETBUILD): $(TARGETBUILD).cc $(DEPEND)
+	$(CC) $(CFLAGS) $(CPFLAGS) $(DEPEND) $(TARGETBUILD).cc -o $(TARGETBUILD)
+
 
 clean:
-	rm $(TARGET)
+	rm $(TARGETBUILD) $(TARGETMEASURE)

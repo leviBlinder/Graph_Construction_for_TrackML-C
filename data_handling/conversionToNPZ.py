@@ -30,8 +30,8 @@ for graph_num, graph_path in enumerate(graph_paths):
                 newcolNoNaNs = newcolNoNaNs.astype(bool)
             else:
                 newcolNoNaNs = newcolNoNaNs.astype(int)
-        #if(i != 9):
-        newcolNoNaNs = newcolNoNaNs[..., None]
+        if(i != 9):
+            newcolNoNaNs = newcolNoNaNs[..., None]
 
         dictNoNans[i] = newcolNoNaNs
     graph = dict(x = np.column_stack((dictNoNans[0],dictNoNans[1],dictNoNans[2])),

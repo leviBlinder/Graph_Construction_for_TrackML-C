@@ -1,12 +1,17 @@
 #include<iostream>
 #include<fstream>
 #include<cmath>
+#include<cstring>
 #include <vector>
-#include"hep_data.h"
-#include"hit_list.h"
 #include <stdlib.h>  // malloc
 #include <assert.h>
+
+#include"hep_data.h"
+#include"structs/hit_list.h"
+
 using namespace std;
+
+
 
 // The is a better but probably slower way to read files on GormAnalysis "Reading And Writing CSV Files With C++"
 void read_hits_limited(char* filename, hit_list_T hits){
@@ -120,8 +125,20 @@ void read_limited(size_t evtid, hit_list_T* phits, void*** pparticles){
     size_t psize = 0;
     size_t htsize = 0;
     (void) sprintf(pfilename, "../train_100_events/event00000%zu-particles.csv", evtid);
+    ifstream pfileTEST(pfilename, ifstream::in);
+
+    if(!pfileTEST.is_open()){
+      (void) sprintf(pfilename, "../../train_100_events/event00000%zu-particles.csv", evtid);
+      (void) sprintf(hfilename, "../../train_100_events/event00000%zu-hits.csv", evtid);
+      (void) sprintf(tfilename, "../../train_100_events/event00000%zu-truth.csv", evtid);
+    }else{
+      (void) sprintf(hfilename, "../train_100_events/event00000%zu-hits.csv", evtid);
+      (void) sprintf(tfilename, "../train_100_events/event00000%zu-truth.csv", evtid);
+    }
+
     ifstream pfile(pfilename, ifstream::in);
     if(!pfile.is_open()) throw runtime_error("Could not open file");
+
     while(pfile.good()){
       (void) pfile.getline(buffer,100);
       if(pfile.peek() == EOF) break;
@@ -129,10 +146,9 @@ void read_limited(size_t evtid, hit_list_T* phits, void*** pparticles){
     }
     pfile.close();
 
-    (void) sprintf(hfilename, "../train_100_events/event00000%zu-hits.csv", evtid);
-    (void) sprintf(tfilename, "../train_100_events/event00000%zu-truth.csv", evtid);
     ifstream htfile(hfilename, ifstream::in);
     if(!htfile.is_open()) throw runtime_error("Could not open file");
+
     while(htfile.good()){
       (void) htfile.getline(buffer,100);
       if(htfile.peek() == EOF) break;
