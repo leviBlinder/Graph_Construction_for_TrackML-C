@@ -8,14 +8,14 @@
   ```
 - **constructing graphs for plots**
 
-  1) Navigate to and run graph building executable:
+  ***1)*** Navigate to and run graph building executable:
   ```
   cd graph_construction
   ./build_geometric
   ```
   [Output graph in .csv form will now be in graphs folder]
 
-  2) Navigate to and run python script to convert graph data to .npz format
+  ***2)*** Navigate to and run python script to convert graph data to .npz format
   ```
   cd ../data_handling
   python3 conversionToNPZ.py
@@ -24,23 +24,23 @@
 
 - **making plots for graphs**
 
-  1) Open jupyter notebooks
+  ***1)*** Open jupyter notebooks
   ```
   jupyter notebook
   ```
-  2) Open plotting folder then paper_plots.ipynb in jupyter notebooks.
+  ***2)*** Open plotting folder then paper_plots.ipynb in jupyter notebooks.
 
 - **taking measurements for graph construction**
 
-  1) Navigate to graph construction measurement executable
+  ***1)*** Navigate to graph construction measurement executable
   ```
   cd graph_construction/measurements
   ```
-  2) Remove previous measurements (this step will likely be automatic in the future)
+  ***2)*** Remove previous measurements (this step will likely be automatic in the future)
   ```
   rm statsCompatible.csv
   ```
-  3) Run graph construction measurement executable
+  ***3)*** Run graph construction measurement executable
   ```
   ./measure_geometric
   ```
